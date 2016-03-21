@@ -1,0 +1,37 @@
+{
+  "name": "aws-component-inventory",
+  "version": "0.1.0",
+  "description": "Inventory of AWS components.",
+  "author": "t-yamo",
+  "license": "Apache-2.0",
+  "main": "./lib/aws-component-inventory.js",
+  "engines": {
+    "node": ">=4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t-yamo/aws-component-inventory.git"
+  },
+  "keywords": [
+    "aws"
+  ],
+  "bin": {
+    "aws-component-inventory": "./lib/aws-component-inventory.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.2.37",
+    "aws-sdk-promise": "^0.0.2",
+    "co": "^4.6.0",
+    "commander": "^2.9.0",
+    "elasticsearch": "^10.1.3",
+    "http-aws-es": "^1.1.3",
+    "iconv-lite": "^0.4.13",
+    "log4js": "^0.6.32"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}

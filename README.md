@@ -25,13 +25,23 @@ $ aws-component-inventory <command> [options]
 ```
 
 * command
-    * `componet`
-    * `linux`
-    * `windows`
+    * `componet` get aws resources, truncate and recreate `component` table.
+    * `linux` append middleware of linux to `middleware` table.
+    * `windows` append middleware of windows to `middleware` table.
 
 * options
     * -c, --config <config js file>  config js file path
     * -r, --resource <resource ids>  (for `windows` / `linux`) comma separeted Instance ID or AMI ID
+
+## Auth for AWS
+
+`~/.aws/credentials`
+
+```
+[default]
+aws_access_key_id = XXX
+aws_secret_access_key = XXX
+```
 
 ## Config
 
@@ -43,8 +53,8 @@ See [config/default.js](config/default.js).
 module.exports = {
   appenders: [
     { type: "file-appender", opts: { files: { component: "out_component.log", middleware: "out_middleware.log" } } },
-    { type: "dynamodb-appender", opts: { tables: { component: "component", middleware: "middleware" }, awsopts: { region: "ap-northeast-1" } } },
-    { type: "elasticsearch-appender", opts: { endpoint: "search-cmdb-xxxx.ap-northeast-1.es.amazonaws.com", indexes: { component: "component", middleware: "middleware" }, awsopts: { region: "ap-northeast-1" } } }
+    { type: "dynamodb-appender", opts: { tables: { component: { name: "component", recreate: true }, middleware: { name: "middleware", recreate: false } }, awsopts: { region: "ap-northeast-1" } } },
+    { type: "elasticsearch-appender", opts: { endpoint: "search-cmdb-xxxx.ap-northeast-1.es.amazonaws.com", indexes: { component: { name: "component", recreate: true }, middleware: { name: "middleware", recreate: false } }, awsopts: { region: "ap-northeast-1" } } }
   ],
   aws: {
     opts: {

@@ -3,8 +3,8 @@
 module.exports = {
   appenders: [
     { type: "file-appender", opts: { files: { component: "out_component.log", middleware: "out_middleware.log" } } },
-    { type: "dynamodb-appender", opts: { tables: { component: "component", middleware: "middleware" }, awsopts: { region: "ap-northeast-1" } } },
-    { type: "elasticsearch-appender", opts: { endpoint: "search-cmdb-xxxx.ap-northeast-1.es.amazonaws.com", indexes: { component: "component", middleware: "middleware" }, awsopts: { region: "ap-northeast-1" } } }
+    { type: "dynamodb-appender", opts: { tables: { component: { name: "component", recreate: true }, middleware: { name: "middleware", recreate: false } }, awsopts: { region: "ap-northeast-1" } } },
+    { type: "elasticsearch-appender", opts: { endpoint: "search-cmdb-xxxx.ap-northeast-1.es.amazonaws.com", indexes: { component: { name: "component", recreate: true }, middleware: { name: "middleware", recreate: false } }, awsopts: { region: "ap-northeast-1" } } }
   ],
   aws: {
     opts: {

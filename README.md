@@ -76,6 +76,158 @@ module.exports = {
 };
 ```
 
+## Commands
+
+### component
+
+* acitype: Resource Type (e.g. `EC2_Subnets`, `EC2_RouteTables`, `CloudFormation_Stacks`).
+* acipk: ID of Resource Type (e.g. `i-xxx`, `sg-xxx`, `rtb-xxx`).
+* acitags: Flatten Key-Value pair of Tags.
+* other data: JSON of describe/list.
+
+Output Sample:
+
+```
+[
+  {
+    "SubnetId": "subnet-xxx",
+    "State": "available",
+    "VpcId": "vpc-xxx",
+    "CidrBlock": "x.x.x.x/x",
+    "Tags": [
+      {
+        "Key": "System",
+        "Value": "xxx"
+      },
+    ],
+    "acitype": "EC2_Subnets",
+    "acipk": "subnet-xxx",
+    "acitags": {
+      "System": "xxx"
+    }
+  },
+  {
+    "SubnetId": "subnet-xxx",
+    "State": "available",
+    "VpcId": "vpc-xxx",
+    "CidrBlock": "x.x.x.x/x",
+    "Tags": [
+      {
+        "Key": "System",
+        "Value": "xxx"
+      },
+    ],
+    "acitype": "EC2_Subnets",
+    "acipk": "subnet-xxx",
+    "acitags": {
+      "System": "xxx"
+    }
+  }
+]
+```
+
+### linux
+
+* acitype: `linux`
+* acipk: Resource ID. (Instance ID or AMI ID or hostname)
+* other data: array strings of middleware name and version.
+
+Output Sample:
+
+```
+[
+  {
+    "acitype": "linux",
+    "acipk": "i-xxx",
+    "middleware": {
+      "rpm": [
+        "java-1.7.0-openjdk-1.7.0.95-2.6.4.0.65.amzn1.x86_64",
+        "sqlite-3.7.17-6.13.amzn1.x86_64"
+      ]
+    }
+  },
+  {
+    "acitype": "linux",
+    "acipk": "i-xxx",
+    "middleware": {
+      "rpm": [
+        "java-1.7.0-openjdk-1.7.0.95-2.6.4.0.65.amzn1.x86_64",
+        "sqlite-3.7.17-6.13.amzn1.x86_64"
+      ]
+    }
+  }
+]
+
+```
+
+### windows
+
+* acitype: `windows`
+* acipk: Resource ID. (Instance ID or AMI ID or hostname)
+* other data: array strings of middleware name and version.
+
+Output Sample:
+
+```
+[
+  {
+    "acitype": "windows",
+    "acipk": "i-xxx",
+    "middleware": {
+      "win32product": [
+        "IIS 8.0 Express,8.0.1557",
+        "Microsoft Office Visio Standard 2007,12.0.6215.1000"
+      ]
+    }
+  },
+  {
+    "acitype": "windows",
+    "acipk": "i-xxx",
+    "middleware": {
+      "win32product": [
+        "IIS 8.0 Express,8.0.1557",
+        "Microsoft Office Visio Standard 2007,12.0.6215.1000"
+      ]
+    }
+  }
+]
+```
+
+## Appenders
+
+### file-appender
+
+* opts{}
+    * files{}
+        * key: `component` or `middleware`.
+        * value: file name.
+
+### dynamodb-appender
+
+The principle needs permission Create Table, Delete Table, and Update Item.   
+
+* opts{}
+    * tables{}
+        * key: `component` or `middleware`.
+        * value{}
+            * name: index name.
+            * recreate: If this value is `true`, clear table before register component data.
+    * awsopts{} AWS SDK options.
+
+### elasticsearch-appender
+
+The principle needs permission Access to Elasticsearch.   
+You should create index for component and middleware manually.   
+
+* opts{}
+    * endpoint: endpoint of Elasticsearch.
+    * indexes{}
+        * key: `component` or `middleware`.
+        * value{}
+            * name: table name.
+            * recreate: If this value is `true`, clear table before register component data.
+    * awsopts{} AWS SDK options.
+
 ## License
 
 ```

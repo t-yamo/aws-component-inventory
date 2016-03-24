@@ -236,7 +236,7 @@ You should create index for component and middleware manually.
     * `indexes` {}
         * key : `component` or `middleware`.
         * value {}
-            * `name` : table name.
+            * `name` : index name.
             * `recreate` : If this value is `true`, clear table before register component data.
     * `awsopts` {} AWS SDK options.
 

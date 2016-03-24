@@ -29,8 +29,8 @@ $ aws-component-inventory <command> [options]
     * `windows` append middleware of windows to `middleware` table.
 
 * options
-    * -c, --config <config js file>  config js file path
-    * -r, --resource <resource ids>  (for `windows` / `linux`) comma separeted Instance ID or AMI ID
+    * `-c, --config` <config js file>  config js file path
+    * `-r, --resource` <resource ids>  (for `windows` / `linux`) comma separeted Instance ID or AMI ID
 
 ## Auth for AWS
 

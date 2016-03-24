@@ -1,6 +1,6 @@
 {
   "name": "aws-component-inventory",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Inventory of AWS components.",
   "author": "t-yamo",
   "license": "Apache-2.0",

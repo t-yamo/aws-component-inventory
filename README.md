@@ -80,12 +80,14 @@ module.exports = {
 
 ### component
 
+#### Output
+
 * acitype: Resource Type (e.g. `EC2_Subnets`, `EC2_RouteTables`, `CloudFormation_Stacks`).
 * acipk: ID of Resource Type (e.g. `i-xxx`, `sg-xxx`, `rtb-xxx`).
 * acitags: Flatten Key-Value pair of Tags.
 * other data: JSON of describe/list.
 
-Output Sample:
+#### Output Sample
 
 ```
 [
@@ -128,11 +130,13 @@ Output Sample:
 
 ### linux
 
+#### Output
+
 * acitype: `linux`
 * acipk: Resource ID. (Instance ID or AMI ID or hostname)
 * other data: array strings of middleware name and version.
 
-Output Sample:
+#### Output Sample
 
 ```
 [
@@ -162,11 +166,13 @@ Output Sample:
 
 ### windows
 
+#### Output
+
 * acitype: `windows`
 * acipk: Resource ID. (Instance ID or AMI ID or hostname)
 * other data: array strings of middleware name and version.
 
-Output Sample:
+#### Output Sample
 
 ```
 [

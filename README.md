@@ -203,7 +203,7 @@ module.exports = {
 
 ### file-appender
 
-### Configuration options
+#### Configuration options
 
 * `opts` {}
     * `files` {}
@@ -214,7 +214,7 @@ module.exports = {
 
 The principle needs permission Create Table, Delete Table, and Update Item.   
 
-### Configuration options
+#### Configuration options
 
 * `opts` {}
     * `tables` {}
@@ -229,7 +229,7 @@ The principle needs permission Create Table, Delete Table, and Update Item.
 The principle needs permission Access to Elasticsearch.   
 You should create index for component and middleware manually.   
 
-### Configuration options
+#### Configuration options
 
 * `opts` {}
     * `endpoint` : endpoint of Elasticsearch.

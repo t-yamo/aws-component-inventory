@@ -7,7 +7,6 @@ Inventory of AWS components.
 ## TODO
 
 * Remove old tables.
-* Refactor to command line tool.
 * Add Test code.
 
 ## Instration

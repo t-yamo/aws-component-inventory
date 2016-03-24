@@ -6,7 +6,7 @@ Inventory of AWS components.
 
 ## TODO
 
-* Remove old tables.
+* Remove old middleware.
 * Add Test code.
 
 ## Instration
@@ -203,36 +203,42 @@ module.exports = {
 
 ### file-appender
 
-* opts{}
-    * files{}
-        * key: `component` or `middleware`.
-        * value: file name.
+### Configuration options
+
+* `opts` {}
+    * `files` {}
+        * key : `component` or `middleware`.
+        * value : file name.
 
 ### dynamodb-appender
 
 The principle needs permission Create Table, Delete Table, and Update Item.   
 
-* opts{}
-    * tables{}
-        * key: `component` or `middleware`.
-        * value{}
-            * name: index name.
-            * recreate: If this value is `true`, clear table before register component data.
-    * awsopts{} AWS SDK options.
+### Configuration options
+
+* `opts` {}
+    * `tables` {}
+        * key : `component` or `middleware`.
+        * value {}
+            * `name` : index name.
+            * `recreate` : If this value is `true`, clear table before register component data.
+    * `awsopts` {} AWS SDK options.
 
 ### elasticsearch-appender
 
 The principle needs permission Access to Elasticsearch.   
 You should create index for component and middleware manually.   
 
-* opts{}
-    * endpoint: endpoint of Elasticsearch.
-    * indexes{}
-        * key: `component` or `middleware`.
-        * value{}
-            * name: table name.
-            * recreate: If this value is `true`, clear table before register component data.
-    * awsopts{} AWS SDK options.
+### Configuration options
+
+* `opts` {}
+    * `endpoint` : endpoint of Elasticsearch.
+    * `indexes` {}
+        * key : `component` or `middleware`.
+        * value {}
+            * `name` : table name.
+            * `recreate` : If this value is `true`, clear table before register component data.
+    * `awsopts` {} AWS SDK options.
 
 ## License
 

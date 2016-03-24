@@ -70,6 +70,7 @@ module.exports = {
   },
   linux: {
     middleware: {
+      // Append your custom command that output string as one line include name and version.
       rpm: { command: "rpm", opts: [ "-qa" ] }
     }
   },

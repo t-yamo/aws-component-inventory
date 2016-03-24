@@ -18,15 +18,8 @@ module.exports = {
   },
   linux: {
     middleware: {
+      // Append your custom command that output string as one line include name and version.
       rpm: { command: "rpm", opts: [ "-qa" ] }
     }
-  },
-  check: {
-    opts: {
-      region: "ap-northeast-1"
-    },
-    tags: "acitags",
-    key: "BuildNo",
-    value: "20160309122820"
   }
 };

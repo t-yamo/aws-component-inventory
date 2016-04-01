@@ -27,6 +27,7 @@ $ aws-component-inventory <command> [options]
     * `componet` get aws resources, truncate and recreate `component` table.
     * `linux` append middleware of linux to `middleware` table.
     * `windows` append middleware of windows to `middleware` table.
+    * `cleanup` remove middleware of deleted components from `middleware` table.
 
 * options
     * `-c, --config` <config js file>  config js file path

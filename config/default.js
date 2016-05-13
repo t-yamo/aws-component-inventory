@@ -21,5 +21,11 @@ module.exports = {
       // Append your custom command that output string as one line include name and version.
       rpm: { command: "rpm", opts: [ "-qa" ] }
     }
+  },
+  windows: {
+    middleware: {
+      // Append your custom command that output string as one line include name and version.
+      win32product: { command: "powershell.exe", opts: [ "-command", "& {Get-WmiObject -Class Win32_Product | % {$_.Name + ',' + $_.Version} }" ] }
+    }
   }
 };

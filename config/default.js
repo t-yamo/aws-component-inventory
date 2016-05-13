@@ -19,7 +19,17 @@ module.exports = {
   linux: {
     middleware: {
       // Append your custom command that output string as one line include name and version.
+      systeminfo: { command: "uname", opts: [ "-srvmpio" ] },
+      systemrelease: { command: "cat", opts: [ "/etc/system-release" ] },
       rpm: { command: "rpm", opts: [ "-qa" ] }
+    }
+  },
+  windows: {
+    middleware: {
+      // Append your custom command that output string as one line include name and version.
+      systeminfo: { command: "powershell.exe", opts: [ "-command", "[System.Environment]::OSVersion.VersionString" ] },
+      win32hotfix: { command: "powershell.exe", opts: [ "-command", "& {Get-HotFix | Select -ExpandProperty 'HotFixID'}" ] },
+      win32product: { command: "powershell.exe", opts: [ "-command", "& {Get-WmiObject -Class Win32_Product | % {$_.Name + ',' + $_.Version} }" ] }
     }
   }
 };
